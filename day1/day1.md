@@ -172,3 +172,107 @@ example : class_name(){};
 
 - make is a utility which allows you to combine various files when their dependencies are required in combination.
 - makefile is a file which contains a set of directives/rules which are used by make utility to build the project.
+
+### function overloading 
+- Function overloading is a feature in C++ where two or more functions can have the same name but different parameters.
+- Function overloading can be considered as an example of polymorphism feature in C++.
+- different order of arguments, different return types, different number of arguments.
+- int mul(int,int);
+- double mul(int,int);
+- **This is not a valid example of function overloading as only return type is different.**
+
+### static polymorphism
+- Static polymorphism is a polymorphism that is resolved **during compile time**.
+- Static polymorphism is achieved using function overloading and operator overloading.
+- Static polymorphism is also called as early binding or compile time polymorphism.
+
+### variable number of arguments
+- Variable number of arguments is a feature where a function can take any number of arguments.
+- Variable number of arguments is achieved using ellipsis (three dots) in the function declaration.
+- Variable number of arguments is also called as variadic functions.
+- Variable number of arguments is used in printf() and scanf() functions.
+
+- if the preprocessor replaces the value, we use a macro. if the commpiler replaces the value, we use an inline function.
+- use inline when there is a time-critical application
+- one word for a real time system - determinstic system - all operations take the same amount of time. given task has to take the same time everytime.
+
+### what is a virtual function?
+- A virtual function is a member function in the base class that we expect to redefine in derived classes.
+- A virtual function is declared using the virtual keyword.
+- A virtual function is defined in the base class and redefined in the derived class.
+- A virtual function is used to tell the compiler to perform dynamic linkage or late binding on the function.
+
+### function template 
+- A function template is a function that is defined with generic type parameters.
+- A function template is used to create a generic function.
+- A function template is defined using the keyword template followed by the template parameter list and the function definition.
+example : template <typename T> T add(T a, T b){
+                return a+b;
+    }
+    int main(){
+        cout << add<int>(3,7);
+    }
+- A function template is called using the function name followed by the template argument list.
+example : add<int>(a,b);
+- function templates is not same as function overloading. you can pass different types of arguments in function templates by creating more types (T,U,V) and so on. but in function overloading, you have to create a new function for each type of argument.
+
+**What is function call resolution?**
+- Function call resolution is the process of selecting the most appropriate function among the set of overloaded functions to call.
+- Function call resolution is also called as function resolution or overload resolution.
+- Function call resolution is performed by the compiler at compile time.
+- Function call resolution is performed using the number of arguments and the type of arguments passed to the function.
+
+### vectors 
+- vectors are variable sized arrays
+- vectors are dynamic arrays
+- vectors are used to store a collection of elements
+- vectors are used to store elements of the same type
+- vectors are used to store elements in contiguous memory locations
+- Every object in the collection has an associated index, which gives access to that object.
+vector <T> v; T is the type of the elements in the vector.
+
+### decltype
+- decltype is a keyword that is used to determine the type of an expression at compile time.
+- decltype is used to determine the type of an expression without evaluating the expression.
+- decltype is used to determine the return type of a function.
+
+### what is begin and end in arrays and vectors?
+- begin() returns an iterator pointing to the first element in the array/vector.
+- end() returns an iterator pointing to the last element in the array/vector.
+give me an example with code for begin and end in arrays and vectors.
+- int arr[] = {1,2,3,4,5};
+    for(auto i = begin(arr); i != end(arr); i++){
+        cout << *i << " ";
+    }
+- vector <int> v = {1,2,3,4,5};
+    for(auto i = begin(v); i != end(v); i++){
+        cout << *i << " ";
+    }
+output : 1 2 3 4 5
+what does end-begin give you?
+**end-begin gives you the size of the array/vector.**
+
+### templatized array
+- statically allocated array. remembers the size of the array.
+
+### dynamic memory management
+
+*new and delete*
+- new is used to allocate memory dynamically.
+- new is used to allocate memory for a single object.
+- new is used to allocate memory for an array of objects.
+
+what is a garbage collector?
+- A garbage collector is a program that automatically frees memory that is no longer used by the program.
+- A garbage collector is used to free memory that is allocated dynamically.
+
+what is garbage value?
+- A garbage value is a value that is stored in a memory location that has not been initialized.
+- A garbage value is a value that is stored in a memory location that has been freed.
+- values which occupy memory and are of no use are called garbage values.
+
+**C++ Doesn't have garbage collection as a feature**
+### 3 ways in which dangling pointers are created
+de-allocation of memory
+function call
+variable goes out of scope
