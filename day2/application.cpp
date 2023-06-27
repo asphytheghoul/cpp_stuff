@@ -50,11 +50,30 @@ int main() {
     
     cout << "Enter a number: ";
     num = getInput();
-
+    if (num<lb){
+        cout<<"Number is lesser than lower bound, try again with a higher guess!"<<endl;
+        cout << "Enter a number: ";
+        num = getInput();
+    }
+    else if (num>ub){
+        cout<<"Number is greater than upper bound, try again with a lower guess!"<<endl;
+        cout << "Enter a number: ";
+        num = getInput();
+    }
     vector<int> guesses;
     int flag = 1;
 
     while (num != randomnum) {
+        if (num<lb){
+        cout<<"Number is lesser than lower bound, try again with a higher guess!"<<endl;
+        cout << "Enter a number: ";
+        num = getInput();
+    }
+    else if (num>ub){
+        cout<<"Number is greater than upper bound, try again with a lower guess!"<<endl;
+        cout << "Enter a number: ";
+        num = getInput();
+    }
         for (int i = 0; i < guesses.size(); i++) {
             if (custom::isEqual(num, guesses[i])) {
                 cout << "You have already guessed this number, try another one instead :)" << endl;
