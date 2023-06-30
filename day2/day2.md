@@ -35,6 +35,26 @@ how do differentiate between initialization and assignment in C++ using a keywor
 - we can use const to make sure that the value of a variable cannot be changed after initialization.
 - if the code compiles after prepending `const` to the variable declaration after changing its value, then it is an initialization. If it does not compile, then it is an assignment.
 
-### when is the copy constructor called?
-
+### example of initialization list
+```c++
+class Test {
+    int x;
+    int y;
+public:
+    Test(int i, int j) : x(i), y(j) {}
+};
+```
+- the above code is equivalent to:
+```c++  
+class Test {
+    int x;
+    int y;  
+public:
+    Test(int i, int j) {
+        x = i;
+        y = j;
+    }
+};
+```
+- the difference is that in the first case, the variables are initialized when they are created, while in the second case, the variables are first created and then assigned values
 
