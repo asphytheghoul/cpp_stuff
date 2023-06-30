@@ -298,4 +298,49 @@ Implementation of virtual function in Derived class
 - a stub is a dummy piece of code
 - it is used to stand in for some other programming functionality
 
+### what is a virtual destructor?
+- a destructor is virtual when you might delete an instance of a derived class through a pointer to base class
+- if a class has a virtual destructor, then when you delete a derived class object through a pointer to a base class, the destructor of the derived class is invoked through the pointer to the base class
+- example:
+```c++
+#include <iostream>
+using namespace std;
+
+class base {
+    public:
+        base() {
+            cout << "Constructing base \n";
+        }
+        virtual ~base() {
+            cout << "Destructing base \n";
+        }
+};
+
+class derived : public base {
+    public:
+        derived() {
+            cout << "Constructing derived \n";
+        }
+        ~derived() {
+            cout << "Destructing derived \n";
+        }
+};
+
+int main() {
+    derived *d = new derived();
+    base *b = d;
+    delete b;
+    getchar();
+    return 0;
+}
+```
+- output:
+```
+Constructing base
+Constructing derived
+Destructing derived
+Destructing base
+```
+
+
 
